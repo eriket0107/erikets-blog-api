@@ -11,7 +11,7 @@ export const databaseProviders = [
         port: 27017,
         username: env.MONGO_USER,
         password: env.MONGO_PASS,
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        entities: [__dirname + '/../**/entity/*.entity{.ts,.js}'],
         migrations: [__dirname + '../database/migrations/**/*{.ts,.js}'],
         synchronize: env.NODE_ENV !== 'prod',
       });

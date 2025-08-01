@@ -12,13 +12,13 @@ const envSchema = z.object({
   MONGO_USER: z.string().optional().default('root'),
   MONGO_PASS: z.string().optional().default('root'),
   MONGO_HOST: z.string().optional(),
+  FRONTEND_URL: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);
 
 if (_env.success === false) {
   console.error('❌ Invalid envoriment variables', _env.error);
-  console.log(process.env.JWT_SECRET);
   throw new Error('Invalid envoriment variables');
 }
 export const env = _env.data;
